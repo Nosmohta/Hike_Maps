@@ -25,6 +25,8 @@ app.listen(PORT, () => {
 
 
 
+// Code below is the NODE skeleton provided.
+
 // require('dotenv').config();
 
 // const PORT        = process.env.PORT || 8080;
