@@ -7,7 +7,7 @@ const db            = require("../db/queries")
 router.get("/", ( req, res) => {
   db.searchName("Lincoln", (data) => {
     console.log("sample db query:", data)
-    res.send("on the maps page");
+    res.render("maps_index");
   })
 })
 
