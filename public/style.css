@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box; }
+
+.page-content {
+  top: 70px;
+  left: 0;
+  position: fixed;
+  overflow: auto;
+  right: 0;
+  width: 100%;
+  bottom: 0; }
+  .page-content .maptitle {
+    padding: 15px; }
+  .page-content .markerinfo {
+    height: 450px;
+    width: 500px;
+    float: left; }
+    .page-content .markerinfo .picture {
+      height: 150px;
+      padding: 15px;
+      padding-top: 0; }
+    .page-content .markerinfo .title {
+      padding: 15px; }
+    .page-content .markerinfo .description {
+      padding: 15px; }
+
+.page-nav {
+  left: 0;
+  height: 70px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: #e1e4ea; }
+  .page-nav .brand {
+    padding: 15px;
+    display: inline;
+    height: 70px;
+    line-height: 70px;
+    font-size: 36px;
+    text-decoration: none;
+    margin-right: 80px; }
+  .page-nav .navlink {
+    padding: 15px;
+    height: 70px;
+    line-height: 70px;
+    border: 1px solid blue;
+    font-size: 28px;
+    text-decoration: none; }
+  .page-nav .logout {
+    padding: 15px;
+    height: 70px;
+    line-height: 45px;
+    float: right; }
+  .page-nav .email {
+    margin-left: 80px;
+    padding: 15px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 26px;
+    text-decoration: none; }
+
+#map {
+  height: 450px;
+  width: 500px;
+  float: left; }
+
+.mapview {
+  overflow: hidden;
+  padding: 15px; }
