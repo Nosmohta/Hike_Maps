@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Nosmohta/Hike_Maps#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "knex": "^0.13.0",
+    "pg": "^6.2.3"
   }
 }
