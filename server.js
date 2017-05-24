@@ -14,9 +14,9 @@ app.get("/", (req, res) => {
     res.redirect("/maps")
 })
 
-app.use("/maps", require("./server/routes/maps"))
-app.use("/users", require("./server/routes/users"))
-app.use("/login", require("./server/routes/login"))
+app.use("/maps", require("./routes/maps"))
+app.use("/users", require("./routes/users"))
+app.use("/login", require("./routes/login"))
 
 
 app.listen(PORT, () => {
