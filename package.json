@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Nosmohta/Hike_Maps/issues"
   },
-  "homepage": "https://github.com/Nosmohta/Hike_Maps#readme"
+  "homepage": "https://github.com/Nosmohta/Hike_Maps#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
 }
