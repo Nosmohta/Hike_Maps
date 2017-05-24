@@ -2,9 +2,12 @@
   "name": "hike_maps",
   "version": "1.0.0",
   "description": "Hike Wiki Map",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "local": "./node_modules/.bin/nodemon --ignore public/",
+    "knex": "./node_modules/.bin/knex"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,17 @@
   "bugs": {
     "url": "https://github.com/Nosmohta/Hike_Maps/issues"
   },
-  "homepage": "https://github.com/Nosmohta/Hike_Maps#readme"
+  "homepage": "https://github.com/Nosmohta/Hike_Maps#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-sessions": "^1.0.6",
+    "knex": "^0.13.0",
+    "pg": "^6.2.3"
+  },
+    "devDependencies": {
+    "nodemon": "^1.9.2",
+    "sqlite3": "^3.1.4"
+  }
 }
