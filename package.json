@@ -1,0 +1,19 @@
+{
+  "name": "hike_maps",
+  "version": "1.0.0",
+  "description": "Hike Wiki Map",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nosmohta/Hike_Maps.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nosmohta/Hike_Maps/issues"
+  },
+  "homepage": "https://github.com/Nosmohta/Hike_Maps#readme"
+}
