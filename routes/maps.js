@@ -7,7 +7,8 @@ module.exports = (knex) => {
 
   router.get("/", (req, res) => {
     knex
-      .select("title")
+
+      .select("title", "id")
       .from("map")
       .then((results) => {
 
