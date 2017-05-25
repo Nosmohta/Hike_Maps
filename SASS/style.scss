@@ -13,6 +13,20 @@ $spacing-unit: 15px;
   right:0;
   width: 100%;
   bottom: 0;
+  .amountain {
+  height: 450px;
+  width:500px;
+  padding: $spacing-unit;
+  float:left;
+  }
+  .hikelist {
+  list-style-type:none;
+  margin-top: $navbar-height;
+  float:left;
+    .hike {
+    font-size:20px;
+    }
+  }
   .maptitle {
   padding: $spacing-unit;
   }
@@ -83,4 +97,8 @@ $spacing-unit: 15px;
 .mapview {
   overflow:hidden;
   padding: $spacing-unit
+}
+
+.container {
+  overflow: hidden;
 }
