@@ -15,9 +15,10 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
-const usersRoutes = require("./routes/users");
-const mapsRoutes = require("./routes/maps");
-const mapsviewRoutes = require("./routes/maps_view");
+const usersRoutes    = require("./routes/users");
+
+// const mapsRoutes     = require("./routes/maps");
+// const mapsviewRoutes = require("./routes/maps_view");
 
 
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Welcome to Hike Maps</title>
-  <link rel="stylesheet" href="/public/styles/style.css">
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
   <% include ./partials/_header %>
@@ -16,7 +16,8 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 51.044270, lng: -114.062019},
-          zoom: 10
+          zoom: 10,
+          mapTypeId: google.maps.MapTypeId.TERRAIN
         });
 
         var flightPlanCoordinates = [
@@ -25,6 +26,7 @@
           {lat: 51.0498, lng: -113.8233},
           {lat: 51.044270, lng: -114.062019}
         ];
+
         var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
@@ -39,7 +41,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE&callback=initMap"
     async defer></script>
     <div class="markerinfo">
-      <img class = "picture" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Calgary_Tower_with_flame_1-cropped.jpg">
+      <!-- <img class = "picture"  src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Calgary_Tower_with_flame_1-cropped.jpg">-->
       <h4 class= "title">Calgary Tower</h4>
       <p class="description">
         text text text text text text text
@@ -59,7 +61,7 @@
         text text text text text text text
         text text text text text text text
         text text text text text text text
-        text text text text text text text text text
+        text text text text text text text
       </p>
     </div>
     </div>
