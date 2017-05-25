@@ -42,8 +42,8 @@ app.use("/public", express.static("public"));
 
 // Mount all resource routes
 app.use("/api/users", userRoutes(knex));
+app.use("/api/maps/mapid", mapsviewRoutes(knex));
 app.use("/api/maps", mapsRoutes(knex));
-app.use("/api/maps/:mapid", mapsviewRoutes(knex));
 app.use("/api/user/:userid/:mapid", editviewRoutes(knex));
 
 
@@ -72,6 +72,12 @@ app.get("/users/:userid/:mapid",  (req, res) => {
   res.render("edit_view");
 });
 
+
+// login
+app.get("/login/:name", (req, res) => {
+  console.log(req.params.name);
+  res.redirect("/maps")
+})
 
 
 app.listen(PORT, () => {
