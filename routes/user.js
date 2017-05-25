@@ -10,13 +10,15 @@ module.exports = (knex) => {
       .select("*")
       .from("users")
       .then((results) => {
-
         res.json(results);
     });
   });
 
+
+
+
+
+
+
   return router;
 }
-
-
-
