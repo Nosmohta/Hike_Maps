@@ -15,11 +15,10 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
-const usersRoutes    = require("./routes/users");
-
-// const mapsRoutes     = require("./routes/maps");
-// const mapsviewRoutes = require("./routes/maps_view");
-
+const userRoutes    = require("./routes/user");
+const mapsRoutes     = require("./routes/maps");
+const mapsviewRoutes = require("./routes/maps_view");
+const editviewRoutes = require("./routes/edit_view");
 
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -39,11 +38,13 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
-
+app.use("/api/users", userRoutes(knex));
+app.use("/api/maps", mapsRoutes(knex));
+app.use("/api/maps/:mapid", mapsviewRoutes(knex));
+app.use("/api/user/:userid/:mapid", editviewRoutes(knex));
 
 
 // Home page
@@ -61,16 +62,15 @@ app.get("/maps/:mapid",  (req, res) => {
   res.render("maps_view");
 });
 
-// Create/Edit Map Page
-app.get("/users/:userid/:mapid",  (req, res) => {
-  res.render("edit_view");
-});
-
 // login Page
 app.get("/users",  (req, res) => {
   res.render("login_view");
 });
 
+// Create/Edit Map Page
+app.get("/users/:userid/:mapid",  (req, res) => {
+  res.render("edit_view");
+});
 
 
 
