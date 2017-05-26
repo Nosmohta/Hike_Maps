@@ -8,8 +8,9 @@ module.exports = (knex) => {
 
 
   router.post("/", (req, res) => {
-
-    let userid = req.body.pathname.replace("/user/", "");
+    console.log("POST WHATEVER");
+    console.log(req.session);
+    let userid = req.session.userID;
 
     knex
       .select('title', 'id')

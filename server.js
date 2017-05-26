@@ -84,6 +84,7 @@ app.post("/users/:userid", (req, res) => {
   console.log("user name:", req.params.userid);
   let userid = req.params.userid;
   req.session.userID = userid;
+  console.log(req.session);
   res.redirect("/users/" + userid)
 });
 
