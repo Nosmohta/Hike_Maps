@@ -1,19 +1,48 @@
 <!doctype html>
 
 <html>
+
 <head>
   <title>Welcome to Hike Maps</title>
   <% include ./partials/_generalhead %>
-  <script type="text/javascript" src="/public/scripts/mapsindex.js"></script>
+
+  <script type="text/javascript" src="/public/scripts/maps.js"></script>
 </head>
+
 <body>
+
   <% include ./partials/_header %>
-  <main class="page-content">
-   <div class="container">
-    <img class="amountain" src= "https://upload.wikimedia.org/wikipedia/commons/4/4d/Batian_Nelion_and_pt_Slade_in_the_foreground_Mt_Kenya.JPG">
-    <ul id="hikelist" class = "hikelist text-center">
-    </ul>
+
+<main class="page-content">
+  <div class="container">
+    <!-- Portfolio Item Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <!-- Main title -->
+                <small></small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+        <div class="col-md-6">
+            <img class="img-responsive" src="/public/library/images/moraine.jpg" alt="">
+        </div>
+
+        <div class="col-md-6">
+            <h2>Our Hikes</h2>
+            <ul id="hikelist" class = "hikelist text-center">
+           </ul>
+        </div>
+    </div>
   </div>
-  </main>
+</main>
+
+
+
 </body>
 </html>

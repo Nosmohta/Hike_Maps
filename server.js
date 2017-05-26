@@ -16,10 +16,10 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
-const userRoutes    = require("./routes/user");
-const mapsRoutes     = require("./routes/maps");
-const mapsviewRoutes = require("./routes/maps_view");
-const editviewRoutes = require("./routes/edit_view");
+const userRoutes    = require("./routes/user_route");
+const mapsRoutes     = require("./routes/maps_route");
+const mapsShowRoutes = require("./routes/maps_show_route");
+const myMapsRoutes = require("./routes/my_maps_route");
 
 
 // Concise output colored by response status for development use.
@@ -39,9 +39,9 @@ app.use("/styles", sass({
 app.use("/public", express.static("public"));
 
 // Mount all resource routes
-app.use("/api/maps/mapid", mapsviewRoutes(knex));
+app.use("/api/maps/mapid", mapsShowRoutes(knex));
 app.use("/api/maps", mapsRoutes(knex));
-app.use("/api/users/userid", editviewRoutes(knex));
+app.use("/api/users/userid", myMapsRoutes(knex));
 app.use("/api/login", userRoutes(knex));
 
 // session cookie config
@@ -66,7 +66,7 @@ app.get("/maps", (req, res) => {
 
 // View Map Page
 app.get("/maps/:mapid",  (req, res) => {
-  res.render("maps_view");
+  res.render("maps_show_view");
 });
 
 // login Page
@@ -76,7 +76,7 @@ app.get("/login",  (req, res) => {
 
 // My_Maps Page
 app.get("/users/:userid",  (req, res) => {
-  res.render("edit_view");
+  res.render("my_maps_view");
 });
 
 // login
