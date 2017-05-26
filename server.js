@@ -74,7 +74,7 @@ app.get("/login",  (req, res) => {
   res.render("login_view");
 });
 
-// Create/Edit Map Page
+// My_Maps Page
 app.get("/users/:userid",  (req, res) => {
   res.render("edit_view");
 });
