@@ -59,25 +59,7 @@ $(() => {
 
 
 
-   $.ajax({
-    method: "GET",
-    url: "/api/maps"
-   }).done((map) => {
-      for (hikes of map) {
-        let hike = $("<a>").text(hikes.title).attr("href", `/maps/${hikes.id}`);
-        let editbutton= $("<button>").attr("type", "button").addClass("editing btn btn-primary").text("edit");
-        let li= $("<li>").append(hike).append(editbutton).addClass("h5");
-        $(".myhikes").append(li);
-        $(editbutton).on("click", function() {
-          $(".userhikelist").remove();
-          buildform();
-        });
-      }
-    });
 
-  });
-
->>>>>>> b9fff1970d1efbb2f0399ec50478e997a4fe9f4c
   function buildform() {
       let titletext= $("<p>").text("Title:");
       let titleinput= $("<input>").attr("type", "text").attr("name", "title").attr("value", "");
