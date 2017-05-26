@@ -1,6 +1,6 @@
 $(() => {
 
-console.log("hello");
+
  $.ajax({
     method: "GET",
     url: "/api/maps"
