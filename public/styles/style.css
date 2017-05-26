@@ -82,3 +82,10 @@
 
 .container {
   overflow: hidden; }
+
+.editscreen {
+  padding: 15px;
+  float: left; }
+
+.btn {
+  margin-left: 15px; }
