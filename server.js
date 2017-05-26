@@ -76,7 +76,14 @@ app.get("/login",  (req, res) => {
 
 // My_Maps Page
 app.get("/users/:userid",  (req, res) => {
-  res.render("my_maps_view");
+  let userID = req.session.userID;
+
+  if ( userID === req.params.userid){
+    res.render("my_maps_view");
+  } else {
+    res.send("you need to login first.")
+  }
+
 });
 
 // login

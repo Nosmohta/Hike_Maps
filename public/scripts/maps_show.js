@@ -20,7 +20,7 @@ $(() => {
   }).done((results) => {
         let coordinates = results.coordinates
 
-        google.maps.latlng()
+        //google.maps.latlng()
 
 
         let googleCoords = configCoords(coordinates)
@@ -30,7 +30,6 @@ $(() => {
             initMap(coordinates);
             initMap(googleCoords);
         })
-
 
         function initMap( coords ) {
               map = new google.maps.Map(document.getElementById('map'), {
