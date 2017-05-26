@@ -5,10 +5,16 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
-  router.get("/", (req, res) => {
+
+
+  router.post("/", (req, res) => {
+
+    let userid = req.body.pathname.replace("/user/", "");
+
     knex
-      .select("*")
-      .from("users")
+      .select('title', 'id')
+      .from('map')
+      .where('user_id', userid )
       .then((results) => {
 
         res.json(results);

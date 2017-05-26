@@ -39,7 +39,7 @@ app.use("/styles", sass({
 app.use("/public", express.static("public"));
 
 // Mount all resource routes
-app.use("/api/maps/mapid", mapsShowRoutes(knex));
+app.use("/api/maps/:mapid", mapsShowRoutes(knex));
 app.use("/api/maps", mapsRoutes(knex));
 app.use("/api/users/userid", myMapsRoutes(knex));
 app.use("/api/login", userRoutes(knex));
