@@ -4,7 +4,7 @@ $(() => {
 
   $.ajax({
     method: "GET",
-    url: "/api/users"
+    url: "/api/login"
   }).done((users) => {
     for(user of users) {
       let input = $("<input  type='submit' >").val(user.name)

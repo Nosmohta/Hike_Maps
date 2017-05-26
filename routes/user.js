@@ -14,6 +14,7 @@ module.exports = (knex) => {
         res.json(results);
 
     });
+
   });
 
 

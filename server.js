@@ -41,8 +41,8 @@ app.use("/public", express.static("public"));
 // Mount all resource routes
 app.use("/api/maps/mapid", mapsviewRoutes(knex));
 app.use("/api/maps", mapsRoutes(knex));
-app.use("/api/user/:userid", editviewRoutes(knex));
-app.use("/api/users", userRoutes(knex));
+app.use("/api/users/userid", editviewRoutes(knex));
+app.use("/api/login", userRoutes(knex));
 
 // session cookie config
 app.use(session( {
@@ -70,7 +70,7 @@ app.get("/maps/:mapid",  (req, res) => {
 });
 
 // login Page
-app.get("/users",  (req, res) => {
+app.get("/login",  (req, res) => {
   res.render("login_view");
 });
 
