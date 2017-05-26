@@ -3,23 +3,17 @@
   <head>
     <title>Welcome to Hike Maps</title>
     <% include ./partials/_generalhead %>
-
     <script type="text/javascript" src="/public/scripts/loginclient.js"></script>
   </head>
 
   <body>
     <% include ./partials/_header %>
-    <form action="/login" method="POST" style="margin:150px;">
-
-      <div>
+    <main class="page-content">
+      <div class="container">
         <h3> Auto login </h3>
         <ul id="autologin">
-          <li>
-            <input type="submit" method="POST" path="/users/userid" value="sample user">
-          </li>
         </ul>
       </div>
-
-    </form>
+    </main>
   </body>
 </html>
