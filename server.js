@@ -42,10 +42,10 @@ app.use("/styles", sass({
 app.use("/public", express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", userRoutes(knex));
 app.use("/api/maps/mapid", mapsviewRoutes(knex));
 app.use("/api/maps", mapsRoutes(knex));
-app.use("/api/user/:userid/:mapid", editviewRoutes(knex));
+app.use("/api/user/:userid", editviewRoutes(knex));
+app.use("/api/users", userRoutes(knex));
 
 // session cookie config
 app.use(session( {
