@@ -2,20 +2,21 @@
 
 const express = require('express');
 const router  = express.Router();
+const session     = require('express-session')
 
 module.exports = (knex) => {
 
 
 
-  router.post("/", (req, res) => {
-    console.log("POST WHATEVER");
-    console.log(req.session.userID);
+  router.get("/", (req, res) => {
+
     let userid = req.session.userID;
 
     knex
-      .select('title', 'id')
+      .select('map.title', 'map.id')
       .from('map')
-      .where('user_id', userid )
+      .innerJoin ('users','map.user_id', 'users.id')
+      .where('users.name', userid )
       .then((results) => {
 
         res.json(results);

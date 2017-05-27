@@ -38,12 +38,6 @@ app.use("/styles", sass({
 }));
 app.use("/public", express.static("public"));
 
-// Mount all resource routes
-app.use("/api/maps/:mapid", mapsShowRoutes(knex));
-app.use("/api/maps", mapsRoutes(knex));
-app.use("/api/users/userid", myMapsRoutes(knex));
-app.use("/api/login", userRoutes(knex));
-
 // session cookie config
 app.use(session( {
     name: 'session',
@@ -53,6 +47,12 @@ app.use(session( {
     maxAge: 24 * 60 * 60 * 1000
   }
 ));
+
+// Mount all resource routes
+app.use("/api/maps/:mapid", mapsShowRoutes(knex));
+app.use("/api/maps", mapsRoutes(knex));
+app.use("/api/users/userid", myMapsRoutes(knex));
+app.use("/api/login", userRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {

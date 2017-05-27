@@ -1,13 +1,16 @@
 $(() => {
 
      $.ajax({
-      method: "POST",
+      method: "GET",
       url: "/api/users/userid",
-
+      xhrFields: {
+        withCredentials: true
+      }
      }).done((map) => {
+        console.log("SOMETHING")
         for (hikes of map) {
           let hike = $("<a>").text(hikes.title).attr("href", `/maps/${hikes.id}`);
-          let editbutton= $("<button>").attr("type", "button").addClass("editing btn btn-primary").text("edit");
+          let editbutton= $("<button>").attr("type", "button").addClass("editing btn btn-primary").text("edit").data("title", hikes.title).data("hikes", hikes.id);
           let li= $("<li>").append(hike).append(editbutton).addClass("h5");
           $(".myhikes").append(li);
 
