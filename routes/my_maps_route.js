@@ -26,5 +26,18 @@ module.exports = (knex) => {
 
   });
 
+  router.post("/mapid", (req, res) => {
+    let userid = req.session.userID;
+
+    knex
+      .select()
+      .from('map')
+      .where('id', req.body.mapid )
+      .then((results) => {
+
+        res.json(results);
+    });
+  });
+
   return router;
 }
