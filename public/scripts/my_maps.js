@@ -13,6 +13,7 @@ $(() => {
 
           //beg: build form function when clicking on edit
           $(editbutton).on("click", function() {
+            $(this)
             $(".userhikelist").remove();
             buildform();
           });
