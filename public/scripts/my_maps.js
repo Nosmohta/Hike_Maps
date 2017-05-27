@@ -7,7 +7,6 @@ $(() => {
         withCredentials: true
       }
      }).done((map) => {
-        console.log("SOMETHING")
         for (hikes of map) {
           let hike = $("<a>").text(hikes.title).attr("href", `/maps/${hikes.id}`);
           let editbutton= $("<button>").attr("type", "button").addClass("editing btn btn-primary").text("edit").data("title", hikes.title).data("hikes", hikes.id);
