@@ -1,13 +1,6 @@
 
 $(() => {
 
-  const gMapConfig = "hello"
-
-  const flightPathConfig = "hello"
-
-  // console.log(gMapConfig )
-  // console.log(flightPathConfig)
-  // console.log(location.pathname)
 
 
 
@@ -18,16 +11,15 @@ $(() => {
       "pathname": location.pathname
     }
   }).done((results) => {
-        let coordinates = results.coordinates
+        console.log(results);
+        let coords = results.geometry.coordinates;
+        console.log(results.geometry.coordinates);
 
-        //google.maps.latlng()
-
-
-        let googleCoords = configCoords(coordinates)
+        let googleCoords = configCoords(coords)
         console.log(googleCoords)
 
         $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
-            initMap(coordinates);
+            //initMap(coordinates);
             initMap(googleCoords);
         })
 
