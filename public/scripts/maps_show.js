@@ -15,13 +15,14 @@ $(() => {
         let coords = results.geometry.coordinates;
         console.log(results.geometry.coordinates);
 
-        let googleCoords = configCoords(coords)
+        let googleCoords = configCoords(coords);
         console.log(googleCoords)
 
         $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
             //initMap(coordinates);
             initMap(googleCoords);
         })
+
 
         function initMap( coords ) {
               map = new google.maps.Map(document.getElementById('map'), {
