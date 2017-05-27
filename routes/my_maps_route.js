@@ -9,7 +9,7 @@ module.exports = (knex) => {
 
   router.post("/", (req, res) => {
     console.log("POST WHATEVER");
-    console.log(req.session);
+    console.log(req.session.userID);
     let userid = req.session.userID;
 
     knex
