@@ -1,16 +1,11 @@
 
 
-
-module.exports = {
-
-  sampleFunction: (input) => {
-    console.log("You called the sampleFunction");
-  },
-
-  checkLoginStatus: (request) => {
-    // boolean response true if encripted cookie is a valid user id.
-    console.log("You called the checkLoginStatus function");
-  }
-
-
+//takes array of arrays shape (nx2) lat long vals
+//returns google maps coords configuration object
+function configCoords ( coords ) {
+  let googleCoords = coords.map( (coord) => {
+      return { "lat" : Number(coord[0]) , "lng" : Number(coord[1]) };
+      } )
+  return googleCoords
 }
+

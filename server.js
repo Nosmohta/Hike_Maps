@@ -39,7 +39,7 @@ app.use("/styles", sass({
 app.use("/public", express.static("public"));
 
 // Mount all resource routes
-app.use("/api/maps/mapid", mapsShowRoutes(knex));
+app.use("/api/maps/:mapid", mapsShowRoutes(knex));
 app.use("/api/maps", mapsRoutes(knex));
 app.use("/api/users/userid", myMapsRoutes(knex));
 app.use("/api/login", userRoutes(knex));
@@ -76,7 +76,14 @@ app.get("/login",  (req, res) => {
 
 // My_Maps Page
 app.get("/users/:userid",  (req, res) => {
-  res.render("my_maps_view");
+  let userID = req.session.userID;
+
+  if ( userID === req.params.userid){
+    res.render("my_maps_view");
+  } else {
+    res.send("you need to login first.")
+  }
+
 });
 
 // login
@@ -84,6 +91,7 @@ app.post("/users/:userid", (req, res) => {
   console.log("user name:", req.params.userid);
   let userid = req.params.userid;
   req.session.userID = userid;
+  console.log(req.session);
   res.redirect("/users/" + userid)
 });
 

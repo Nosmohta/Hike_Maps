@@ -5,10 +5,17 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
-  router.get("/", (req, res) => {
+
+
+  router.post("/", (req, res) => {
+    console.log("POST WHATEVER");
+    console.log(req.session);
+    let userid = req.session.userID;
+
     knex
-      .select("*")
-      .from("users")
+      .select('title', 'id')
+      .from('map')
+      .where('user_id', userid )
       .then((results) => {
 
         res.json(results);

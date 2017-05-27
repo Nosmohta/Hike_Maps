@@ -1,42 +1,126 @@
+
 $(() => {
+
+  const gMapConfig = "hello"
+
+  const flightPathConfig = "hello"
+
+  // console.log(gMapConfig )
+  // console.log(flightPathConfig)
+  // console.log(location.pathname)
 
 
 
   $.ajax({
-    method: "GET",
-    url: "/api/maps/mapid"
+    method: "POST",
+    url: "/api/maps/mapid",
+    data: {
+      "pathname": location.pathname
+    }
   }).done((results) => {
-      //grab map element and change attribute of map to include path details
-      //$("<div>").text(user.name).appendTo($("body"));
+        let coordinates = results.coordinates
 
-    console.log("DONE map ajx request.")
-  })
+        //google.maps.latlng()
 
 
+        let googleCoords = configCoords(coordinates)
+        console.log(googleCoords)
 
-  // function initMap() {
+        $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
+            initMap(coordinates);
+            initMap(googleCoords);
+        })
 
-  //       var location = new google.maps.LatLng(50.0875726, 14.4189987);
+        function initMap( coords ) {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 51.044270, lng: -114.062019},
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+              });
 
-  //       var mapCanvas = document.getElementById('map');
-  //       var mapOptions = {
-  //           center: location,
-  //           zoom: 16,
-  //           panControl: false,
-  //           mapTypeId: google.maps.MapTypeId.ROADMAP
-  //       }
-  //       var map = new google.maps.Map(mapCanvas, mapOptions);
+              var flightPlanCoordinates = coords
 
-  // }
+              var flightPath = new google.maps.Polyline({
+                path: flightPlanCoordinates,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+              });
 
-
-
-  // // google.maps.event.addDomListener(window, 'load', initMap);
+              flightPath.setMap(map);
+            }
 
 
 
+      });
 
 
-});
+ });
+
+
+        // function initialize(){
+        //   var mapOptions = {
+        //     zoom: 8,
+        //     center: new google.maps.LatLng(47.3239, 5.0428),
+        //     mapTypeId: google.maps.MapTypeId.ROADMAP
+        //     };
+        //   map = new google.maps.Map($("#map"),mapOptions);
+        //  }
+
+        // function loadGoogleMaps(){
+        //       var script_tag = document.createElement('script');
+        //       script_tag.setAttribute("type","text/javascript");
+        //       script_tag.setAttribute("src","http://maps.google.com/maps/api/js?sensor=false&callback=gMapsCallback");
+        //       (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+        //   }
+
+        //   $(window).bind('gMapsLoaded', initialize);
+        //   loadGoogleMaps();
+
+
+
+        // // build map
+        //     const map = ""
+
+        //     function initMap() {
+        //     map = new google.maps.Map(document.getElementById('map'), {
+        //         center: {lat: 51.044270, lng: -114.062019},
+        //         zoom: 10,
+        //         mapTypeId: google.maps.MapTypeId.TERRAIN
+        //       });
+
+        //       var flightPlanCoordinates = [
+        //         {lat: 51.044270, lng: -114.062019},
+        //         {lat: 51.131470, lng: -114.010559},
+        //         {lat: 51.0498, lng: -113.8233},
+        //         {lat: 51.044270, lng: -114.062019}
+        //       ];
+
+        //       var flightPath = new google.maps.Polyline({
+        //         path: flightPlanCoordinates,
+        //         geodesic: true,
+        //         strokeColor: '#FF0000',
+        //         strokeOpacity: 1.0,
+        //         strokeWeight: 2
+        //       });
+
+        //       flightPath.setMap(map);
+        //     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

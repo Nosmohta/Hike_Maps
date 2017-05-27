@@ -5,15 +5,19 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
-  router.get("/", (req, res) => {
-    knex
-      .select("coord")
-      .from( "path")
-      .where( 'id' , 1)
-      .then((results) => {
+  router.post("/", (req, res) => {
 
-        res.json(results);
+    let mapid = req.body.pathname.replace("/maps/", "");
+
+    knex
+      .select('coord')
+      .from( 'path')
+      .where( 'id' , mapid )
+      .then((results) => {
+        console.log("sending /maps/:mapid results")
+        res.json(results[0].coord);
     });
+
   });
 
   return router;
