@@ -8,88 +8,49 @@ exports.seed = function(knex, Promise) {
 
             knex('map').insert({
              id: 1,
-             title: "Devil's Thumb near Banff, AB",
-             description: "Hiking, rock climbing, pictographs, upper/lower-level lakes, boardwalks, mountain biking trails, waterfall, picnic tables, parking--This is a excellent trail for all ages and activities. The hike to the upper/lower lakes will take most people 15 minutes to an hour. You will spend most of your time here walking along the boardwalks with the stunning blue-green color of the Grassi Lakes. There are pictographs and rock climbing above the lakes a trail through the rocks makes this hike a breeze even for the novice hikers.",
-             travel_time: '10',
-             path: JSON.stringify({
-                "type": "Feature",
-                "geometry": {
-                    "type": "LineString",
-                    "coordinates": [
-                        [ -114.094765, 51.056484 ],[ -114.094744, 51.055533], [ -114.094733, 51.054609 ]
-                    ]
-                }
-            }),
+             title: "Heart Mountain Summit",
+             description: "Heart mountain is an easy to moderate scramble located just east of Canmore, Alberta. Its aspect makes it one of the first passable alpine trails that can be hiked in the summer. By mid June the approach to the first false peak is typically completely clear and dry. The final traverse across the top of the heart is likely to hide several knee deep snow drifts which can be refreshing on a warm day. The east slope is more exposed to the elements than the west. Strong winds here are a force to be reckoned with.",
+             travel_time: '8',
+             path: JSON.stringify({"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[-115.15491485595703,51.049811953719086],[-115.15251159667969,51.04819321568309],[-115.14976501464844,51.04657442107223],[-115.14482975006102,51.044820663066474],[-115.14238357543945,51.04330967984777],[-115.14092445373534,51.042500204278674],[-115.13998031616211,51.0419875291025],[-115.13826370239256,51.040476453474334],[-115.13710498809816,51.03982883454621],[-115.13659000396729,51.039397083564964],[-115.1352596282959,51.03837165885954],[-115.13474464416504,51.03767003940614],[-115.13337135314941,51.03745415435994],[-115.13285636901855,51.03653663169207],[-115.13259887695312,51.03561909085579],[-115.13182640075685,51.035187300646164],[-115.13071060180664,51.034593582538285],[-115.12667655944824,51.033676003227335],[-115.12315750122069,51.03329817117137],[-115.12187004089354,51.03270442885947],[-115.1202392578125,51.03378395467754],[-115.11929512023927,51.03470153185098],[-115.11586189270018,51.03653663169207],[-115.11500358581543,51.038209747620975],[-115.11569023132324,51.04036851761496],[-115.11869430541994,51.041717697783575],[-115.11963844299316,51.042743048434566],[-115.12161254882812,51.045117457550354],[-115.12375831604002,51.04679026362245],[-115.1260757446289,51.048355092032544],[-115.12676239013672,51.04921842300814],[-115.1264190673828,51.049811953719086],[-115.12710571289061,51.05078316938504],[-115.12873649597168,51.05240181690268],[-115.12976646423338,51.053372978258146],[-115.13019561767578,51.05423621569879],[-115.13105392456053,51.054398070927455],[-115.13174057006835,51.05558499198508],[-115.1330280303955,51.05639423889957],[-115.13380050659181,51.05666398472822],[-115.13620376586913,51.056717933705386],[-115.13774871826173,51.056879780259706],[-115.1392936706543,51.055962642305175],[-115.14169692993165,51.05402040784723],[-115.14495849609376,51.052779493183195],[-115.14985084533691,51.05175436468443],[-115.15397071838377,51.05056734544155],[-115.15551567077638,51.050135694537346]]}}]}
+            ),
             user_id: 1
 
             }),
 
             knex('map').insert({
                 id: 2,
-                title: 'French Creek Trail near Canmore, AB',
-                description: "From the Burstall Pass trailhead follow Burstall Trail to the third (3rd) hiking arrow sign post. Look left and there is a large cut line with a path ascending. After the hill is crested the path turns into a road.Just before the creek there is a 'T' to the right marked with a small cairn. This path leads to the first falls in ~1 km. Depending on how high the creek is try to get down to bank before trail veers off too high. Very steep.Enjoy these falls and there are more farther up the creek but you will have to go back to the 'T' and cross creek. We spent most of the day on south side of creek exploring some back trails but mostly a waste of time. Never got to see other falls but west up the valley you get peeks of the French Glacier.",
+                title: 'Mount Indefatigable',
+                description: "Time and distance are for a round trip. Elevation gain ~1,500'. The Indefatigable Trail in Kananaskis Country is one of those must-do hikes with probably the best views in the park. Having said that, the park has de-commissioned this very popular trail from its official trails list. The reasons cited are the frequency of bear-related trail closures and the fact that the trail is quickly becoming eroded. Both are valid reasons. By August of every year, the trail is usually closed due to bear activity. And the trail is widening every year. Why? Because it is a reasonably steep trail with lots of rubble over hard packed earth or rock - much like ball bearings on a slope. Thus many hikers have taken to walking beside the trail, wider and wider to avoid slipping. But if you are careful, you should have no problems with this trail.",
                 travel_time: '5',
-                path: JSON.stringify({
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": [
-                            [ -115.094765, 52.056484 ],[ -115.094744, 52.055533], [ -115.094733, 52.054609 ]
-                        ]
-                    }
-                }),
+                path: JSON.stringify({"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[-115.14066696166992,50.63204218884234],[-115.14375686645508,50.634002069243124],[-115.14719009399414,50.63498197880154],[-115.14787673950195,50.635744116557404],[-115.14925003051758,50.63563524049174],[-115.14925003051758,50.63922801750206],[-115.15079498291014,50.64194963543119],[-115.15113830566406,50.64401795964478],[-115.15302658081055,50.64652159873256],[-115.1557731628418,50.64739239844984],[-115.1590347290039,50.647827792256315],[-115.16109466552734,50.65022238607096],[-115.16349792480469,50.65163731595667],[-115.1641845703125,50.65305220322639],[-115.16332626342772,50.65446704788051],[-115.16263961791991,50.6558818499195],[-115.1641845703125,50.65718778320866],[-115.16538619995119,50.656970130182046],[-115.16796112060548,50.6553377003323],[-115.17105102539061,50.65424938224597],[-115.1722526550293,50.653596379290455],[-115.1719093322754,50.65174615495196],[-115.1700210571289,50.65022238607096],[-115.16933441162111,50.64902510441994],[-115.16796112060548,50.6475012472797],[-115.16693115234375,50.64673930017491],[-115.16487121582031,50.64532422276904],[-115.16298294067383,50.64565078287611],[-115.16075134277345,50.646303896281495],[-115.15800476074217,50.64641274763311],[-115.15611648559569,50.64695700060859],[-115.15422821044922,50.646195044677704],[-115.15294075012207,50.64622225760228]]}}]}),
                 user_id: 1
             }),
 
             knex('map').insert({
                 id: 3,
-                title: "Devil's Thumb near Banff, AB",
-                description: "The trail to the Devil's Thumb is actually a side trip from the Lake Agnes/ Big Beehive trail.",
+                title: "Mount Kidd Summit",
+                description: "This trail is a great day long hike. The first three hours are great scrambling but the last couple hours, depending on your choice of ascent and time of season, are either spent slogging up snow or shale. I regretted not bringing an ice axe or crampons for climbing up the snow. We did this climb in late July so the snow was very icy and slippery, not good for glissading down - too steep and no traction. However the views are wonderful and there was plenty of wildlife throughout. It was just under 5 hours ascent time, and 4 hours descent (we went the wrong way and spent half an hour backtracking) I have been told that June is the best time to do this climb but should be done with caution and with good knowledge of avalanche conditions. Bring proper snow equipment or avoid the snow altogether, stick to the path up the middle of the rock faces between the two snow patches but right of the cliffs. We went the wrong way and ended up free climbing the cliffs, fortunately we met other hikers at the top to show us the better way down!",
                 travel_time: '8',
-                path: JSON.stringify({
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": [
-                             [ -116.094765, 53.056484 ],[ -116.094744, 53.055533], [ -116.094733, 53.054609 ]
-                        ]
-                    }
-                }),
+                path: JSON.stringify({"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[-115.17620086669922,50.86090234594949],[-115.17723083496095,50.86166081468261],[-115.17791748046875,50.8628526691932],[-115.17877578735352,50.86328606327979],[-115.17963409423827,50.8627443200421],[-115.18117904663086,50.8628526691932],[-115.18083572387695,50.86393614685609],[-115.18117904663086,50.865019599340435],[-115.18186569213867,50.86588634319952],[-115.18100738525389,50.8674031061786],[-115.1806640625,50.86913648915634],[-115.17980575561525,50.8704364840913],[-115.17826080322264,50.8714114564999],[-115.17654418945314,50.87206142677591],[-115.17705917358397,50.87346966461366],[-115.17791748046875,50.8744445735763],[-115.1784324645996,50.875419462145885],[-115.17877578735352,50.876827598521906],[-115.17929077148438,50.87769412283608],[-115.18083572387695,50.878127378950914],[-115.18255233764648,50.87899387909616],[-115.184268951416,50.87953543350478],[-115.18632888793944,50.88007698161951],[-115.1883888244629,50.880835138406376],[-115.19027709960936,50.8811600589673],[-115.19182205200195,50.88256802188226],[-115.19336700439453,50.88310953475148],[-115.1945686340332,50.88397594225127],[-115.19577026367188,50.88527552329112],[-115.19680023193358,50.886683361842216],[-115.19680023193358,50.88787457661678],[-115.19645690917969,50.88939062409337],[-115.1971435546875,50.890473484939406],[-115.1971435546875,50.891556320611755],[-115.19628524780275,50.892314290604155],[-115.1949119567871,50.89296396935147],[-115.19285202026366,50.89307224826163],[-115.19147872924803,50.89307224826163],[-115.19010543823241,50.89372191643622]]}}]}),
                 user_id: 1
             }),
 
             knex('map').insert({
                 id: 4,
-                title: "Rainbow Creek",
-                description: "The trail to the Devil's Thumb is actually a side trip from the Lake Agnes/ Big Beehive trail.",
+                title: "Ribbon Falls",
+                description: "The trail to Ribbon Falls is an easy, enjoyable hike, passing through a deep canyon with several waterfalls. It is a very popular trail because of the gentle grade. It's suitable for families with small children and weekends are very busy. Bikes are allowed on the first 3.5km but there are always some who bike all the way to the falls. The falls are very busy, but worth enduring the crowds. Along the way you will find numerous waterfalls (especially early in the season) and an abandoned logging camp.",
                 travel_time: '3',
-                path: JSON.stringify({
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": [
-                             [ -116.094765, 53.056484 ],[ -116.094744, 53.055533], [ -116.094733, 53.054609 ]
-                        ]
-                    }
-                }),
+                path: JSON.stringify({"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[-115.14890670776369,50.933009983292784],[-115.1502799987793,50.932793610972],[-115.15148162841795,50.932793610972],[-115.15336990356444,50.93214448796975],[-115.15508651733398,50.9316035452139],[-115.15663146972655,50.9326854244341],[-115.15731811523436,50.931819923071245],[-115.15886306762695,50.93214448796975],[-115.16126632690428,50.93095440560209],[-115.16401290893553,50.93052164082761],[-115.16693115234375,50.92889873706129],[-115.169677734375,50.928465953160334],[-115.17276763916016,50.928033165232684],[-115.17585754394533,50.927492174660614],[-115.17688751220703,50.9261937716174],[-115.17877578735352,50.92532814945491],[-115.18255233764648,50.92511174139757],[-115.18547058105469,50.925760962549546],[-115.18890380859374,50.92532814945491],[-115.19233703613283,50.924354305269155],[-115.19577026367188,50.923164023580156],[-115.19783020019531,50.92110801075297],[-115.19886016845702,50.919268343314464],[-115.19954681396486,50.91775326845564],[-115.20006179809569,50.914831199061766],[-115.20195007324217,50.91320774789354],[-115.2033233642578,50.91115129511625],[-115.20435333251953,50.908878267912044],[-115.20675659179686,50.907362854775435],[-115.2084732055664,50.90508964256851],[-115.21242141723633,50.90140896840779],[-115.21636962890625,50.898594138887475],[-115.21963119506836,50.89632049851189],[-115.22478103637695,50.89350536138496],[-115.22838592529295,50.892747410775975],[-115.23216247558594,50.89166460279443],[-115.23645401000977,50.89166460279443],[-115.23902893066408,50.8924225710247],[-115.23971557617188,50.89058176963945],[-115.2385139465332,50.890040343621834],[-115.24005889892578,50.88884918423019],[-115.23971557617188,50.88700824161983],[-115.24452209472656,50.887441411132265],[-115.24658203125,50.88700824161983],[-115.24692535400392,50.88538382007476],[-115.24812698364256,50.88451743875677],[-115.25087356567384,50.88408424205586],[-115.2527618408203,50.884625737302635],[-115.25602340698241,50.88408424205586]]}}]}),
                 user_id: 2
             }),
 
 
             knex('map').insert({
                 id: 5,
-                title: "test",
-                description: "test",
+                title: "Wasootch Ridge",
+                description: "Approximately 1100 m elevation gain. Lots of climbing especially for thew first few kilometers from the trailhead. Once up on the ridge lots of up and down lesser peaks. Can stop and turn back at any point but there is a rock cairn that is a popular turn around point, some scrambling is required past that point if you wish to continue. Head west on hwy 1 and take the turnoff for hwy 40 K country trail. Take the first left after the wasootch sign on the right hand side after the Barrier lake info center. Take the trail behind the dark green trail sign (the ridge hike is not listed on the sign). ",
                 travel_time: '7',
-                path: JSON.stringify({
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": [
-                            [ -114.228404677, 51.100658756 ], [ -114.22848111899999, 51.100631598 ], [ -114.228481958, 51.100631431 ], [ -114.228484388, 51.100631347 ], [ -114.22848573, 51.100631598 ], [ -114.228485981, 51.100631598 ]
-                        ]
-                    }
-                }),
+                path: JSON.stringify({"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[-115.09423255920409,50.970589393312224],[-115.09225845336913,50.97021104712801],[-115.09122848510742,50.96896788796588],[-115.08934020996094,50.96626525325902],[-115.08642196655275,50.96475170913738],[-115.08255958557129,50.96345434635503],[-115.07809638977051,50.962265065310234],[-115.07389068603514,50.95994047354539],[-115.07148742675781,50.95583160830687],[-115.07011413574219,50.95215494722071],[-115.06702423095703,50.947829091187195],[-115.06324768066405,50.944368116481996],[-115.06118774414062,50.94090688409996],[-115.05912780761719,50.9391761712781],[-115.05500793457031,50.937445394034576],[-115.04985809326172,50.93355090969078],[-115.04573822021484,50.93052164082761],[-115.04161834716795,50.9281413625921],[-115.03646850585939,50.925760962549546],[-115.02960205078125,50.92511174139757]]}}]}),
                 user_id: 3
             })
 

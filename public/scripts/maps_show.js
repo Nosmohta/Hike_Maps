@@ -2,11 +2,13 @@
 $(() => {
 
     //Initialize Map
+
     var map;
-    var bounds;
     $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
         initMap( '/api' + location.pathname + '/path');
     });
+
+
 
 
   $.ajax({
