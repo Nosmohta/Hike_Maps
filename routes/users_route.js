@@ -8,7 +8,7 @@ module.exports = (knex) => {
 
 
 
-  router.get("/", (req, res) => {
+  router.get("/userid/", (req, res) => {
 
     let userid = req.session.userID;
 
@@ -26,7 +26,7 @@ module.exports = (knex) => {
 
   });
 
-  router.post("/mapid", (req, res) => {
+  router.post("/userid/mapid", (req, res) => {
     let userid = req.session.userID;
 
     knex

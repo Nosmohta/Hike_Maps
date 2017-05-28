@@ -16,10 +16,9 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
-const userRoutes    = require("./routes/user_route");
+const loginRoutes    = require("./routes/login_route");
 const mapsRoutes     = require("./routes/maps_route");
-const mapsShowRoutes = require("./routes/maps_show_route");
-const myMapsRoutes = require("./routes/my_maps_route");
+const usersRoutes = require("./routes/users_route");
 
 
 // Concise output colored by response status for development use.
@@ -49,10 +48,10 @@ app.use(session( {
 ));
 
 // Mount all resource routes
-app.use("/api/maps/:mapid", mapsShowRoutes(knex));
 app.use("/api/maps", mapsRoutes(knex));
-app.use("/api/users/userid", myMapsRoutes(knex));
-app.use("/api/login", userRoutes(knex));
+app.use("/api/users", usersRoutes(knex));
+app.use("/api/login", loginRoutes(knex));
+
 
 // Home page
 app.get("/", (req, res) => {

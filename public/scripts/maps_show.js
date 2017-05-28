@@ -1,43 +1,49 @@
 
 $(() => {
 
-
+    //Initialize Map
+    var map;
+    var bounds;
+    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
+        initMap( '/api' + location.pathname + '/path');
+    });
 
 
   $.ajax({
-    method: "POST",
-    url: "/api/maps/mapid",
-    data: {
-      "pathname": location.pathname
+    method: "GET",
+    url: "/api" + location.pathname,
+    xhrFields: {
+      withCredentials: true
     }
   }).done((results) => {
-        console.log(results);
-
-        // let parse = JSON.parse(results)
-
-        // console.log("parse", parse);
-
-        // let stringy = JSON.stringify(results);
-        // console.log("stringy", stringy);
+    //build DOM with results
+    $('#title').text(results.title);
+    $('#description').text(results.description);
+    $('#hiketime').text("Estimated hike time: " + results.travel_time);
 
 
-        var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: -28, lng: 137}
-        });
+    //Add picture from file async
+    console.log(location.pathname);
 
-        // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-        map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/google.json');
-      }
-
-        $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
-                    initMap();
-                })
+    let mapid = location.pathname.replace('/maps/', '');
+    console.log(mapid)
+    if(mapid) {
+      $('#hikeimg').attr('src', '/public/library/hike_images/img-' + mapid + '.jpg')
+    }
 
 
-    });
+
+
+
+
+
+  });
+
+
+
+
+
+
 
 });
 
