@@ -10,7 +10,7 @@ $(() => {
         for (hikes of map) {
           let hike = $("<a>").text(hikes.title).attr("href", `/maps/${hikes.id}`);
           let editbutton= $("<button>").attr("type", "button").addClass("editing btn btn-primary").text("edit").attr("data-id", hikes.id);
-          let li= $("<li>").append(hike).append(editbutton).addClass("h5");
+          let li= $("<li>").append(editbutton).append(hike).addClass("h5");
           $(".myhikes").append(li);
 
           //beg: build form function when clicking on edit
