@@ -69,8 +69,6 @@ $(() => {
       data: {"mapid" : mapid}
     }).done((map) => {
 
-    console.log(map);
-
         let titletext= $("<p>").text("Title:");
         let titleinput= $("<input>").attr("type", "text").attr("name", "title").attr("value", `${map[0].title}`);
         let drivingtext= $("<p>").text("Driving Time:");
@@ -85,7 +83,6 @@ $(() => {
         let datainput= $("<form>").addClass("datainput").attr("action", "").append(titletext).append(titleinput).append(drivingtext).append(drivinginput).append(descriptiontext).append(descriptioninput).append(imageuploadtext).append(imageuploadinput).append(coorduploadtext).append(coorduploadinput).append("<br>").append(submission);
         let useredit= $("<div>").addClass("useredit text-left").append(datainput);
         $(".editscreen").append(useredit);
-
 
     })
   }
