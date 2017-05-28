@@ -39,5 +39,19 @@ module.exports = (knex) => {
     });
   });
 
+  router.post("/userid/newhike", (req, res) => {
+    let userid = req.session.userID;
+    console.log("API req for new hike");
+
+    knex
+      .select()
+      .from('map')
+      .where('id', req.body.mapid )
+      .then((results) => {
+
+        res.json(results);
+    });
+  });
+
   return router;
 }
