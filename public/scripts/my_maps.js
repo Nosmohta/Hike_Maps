@@ -1,18 +1,26 @@
 $(() => {
 
+    // hardcoded returning map 1 ==> load all user maps or load none...
+    // let mapPath = $('.myhikes').attr('src');
+    // console.log(mapPath);
 
+    // var map;
+    // function initMap() {
+    //     map = new google.maps.Map(document.getElementById('map'), {
+    //       zoom: 7,
+    //       center: {lat: 51, lng: -114}
+    //     });
+    // // STRETCH - load all owner hike paths on home screen.
+    // // map.data.loadGeoJson('/api' + location.pathname);
+    // }
+
+    // let apiPath = '/api' + mapPath + '/path';
+    // console.log(apiPath);
+
+    //Initialize Map
     var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
-          center: {lat: 51, lng: -114}
-        });
-    // STRETCH - load all owner hike paths on home screen.
-    // map.data.loadGeoJson('/api' + location.pathname);
-    }
-
     $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
-        initMap();
+        initMap( '/api/maps/1');
     });
 
 
