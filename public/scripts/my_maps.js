@@ -103,20 +103,22 @@ function buildform(mapid) {
       console.log(imagefile);
       image = JSON.stringify(imagefile);
       console.log(image);
+      console.log( typeof image)
 
 
   // copy paste
-      $.ajax({
-        method: "POST",
-        url: "/api/users/userid/newhike",
-        data: {
-          "title" : $(titleinput).val(),
-          "travel_time" : $(drivinginput).val(),
-          "description" : $(descriptioninput).val(),
-          "path" : JSON.stringify(pathfile),
-          "picture" : JSON.stringify(imagefile)
-        }
-      })
+      // $.ajax({
+      //   method: "POST",
+      //   url: "/api/users/userid/newhike",
+      //   data: {
+      //     "title" : $(titleinput).val(),
+      //     "travel_time" : $(drivinginput).val(),
+      //     "description" : $(descriptioninput).val(),
+      //     "path" : JSON.stringify(pathfile),
+      //     "picture" : JSON.stringify(imagefile)
+      //   }
+      // })
+
     });
   })
 }
