@@ -57,6 +57,8 @@ $(() => {
   });
 
 
+
+
 });
 
 
@@ -82,14 +84,39 @@ function buildform(mapid) {
     let descriptiontext = $("<p>").text("Description:");
     let descriptioninput = $("<textarea>").attr("rows", "4").attr("cols", "50").val( map[0].description);
     let imageuploadtext = $("<p>").text("Image upload:");
-    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("accept", "image/*");
+    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("accept", "image/*").attr("id", "imageuploadinput");
     let coorduploadtext = $("<p>").text("Co-ordinates upload:");
-    let coorduploadinput = $("<input>").attr("type", "file").attr("name", "coordinates").attr("accept", "");
+    let coorduploadinput = $("<input>").attr("type", "file").attr("name", "coordinates").attr("accept", "").attr("id", "coorduploadinput");
     let submission = $("<input>").attr("type", "submit").attr("value", "submit");
     let datainput= $("<form>").addClass("datainput").attr("action", "").append(image).append(titletext).append(titleinput).append(drivingtext).append(drivinginput).append(descriptiontext).append(descriptioninput).append(imageuploadtext).append(imageuploadinput).append(coorduploadtext).append(coorduploadinput).append("<br>").append(submission);
     let useredit= $("<div>").addClass("useredit text-left").append(datainput);
     $(".editscreen").append(useredit);
 
+      $(datainput).on("submit", function(event) {
+      event.preventDefault();
+      console.log($(titleinput).val());
+      console.log($(drivinginput).val());
+      console.log($(descriptioninput).val());
+            // separate picture saving
+      let pathfile = $("#coorduploadinput")[0].files[0];
+      console.log(pathfile);
+
+      let imagefile = $("#imageuploadinput")[0].files[0];
+      console.log(imagefile);
+
+  // copy paste
+      $.ajax({
+        method: "POST",
+        url: "/api/users/userid/newhike",
+        data: {
+          "title" : $(titleinput).val(),
+          "travel_time" : $(drivinginput).val(),
+          "description" : $(descriptioninput).val(),
+          "path" : JSON.stringify(pathfile),
+          "picture" : JSON.stringify(imagefile)
+        }
+      })
+    });
   })
 }
 
@@ -98,19 +125,47 @@ function buildform(mapid) {
 function buildformorig() {
     let image = $("<img id='hikeimg' class='img-responsive' width='80%'>");
     let titletext= $("<p>").text("Title:");
-    let titleinput= $("<input>").attr("type", "text").attr("name", "title").attr("value", "");
+    let titleinput= $("<input>").attr("type", "text").attr("name", "title").attr("value", "").addClass("titleinput");
     let drivingtext= $("<p>").text("Driving Time:");
-    let drivinginput= $("<input>").attr("type", "number").attr("name", "drivingtime").attr("value", "");
+    let drivinginput= $("<input>").attr("type", "number").attr("name", "drivingtime").attr("value", "").addClass("drivinginput");
     let descriptiontext = $("<p>").text("Description:");
-    let descriptioninput = $("<textarea>").attr("rows", "4").attr("cols", "50");
+    let descriptioninput = $("<textarea>").attr("rows", "4").attr("cols", "50").attr("id", "descriptioninput");
     let imageuploadtext = $("<p>").text("Image upload:");
-    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("accept", "image/*");
+    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("accept", "image/*").attr("id","imageuploadinput");
     let coorduploadtext = $("<p>").text("Co-ordinates upload:");
-    let coorduploadinput = $("<input>").attr("type", "file").attr("name", "coordinates").attr("accept", "");
-    let submission = $("<input>").attr("type", "submit").attr("value", "submit");
+    let coorduploadinput = $("<input>").attr("type", "file").attr("name", "coordinates").attr("accept", "").attr("id", "coorduploadinput");
+    let submission = $("<input>").attr("type", "submit").attr("value", "submit").attr("id", "submission");
     let datainput= $("<form>").addClass("datainput").attr("action", "").append(image).append(titletext).append(titleinput).append(drivingtext).append(drivinginput).append(descriptiontext).append(descriptioninput).append(imageuploadtext).append(imageuploadinput).append(coorduploadtext).append(coorduploadinput).append("<br>").append(submission);
     let useredit= $("<div>").addClass("useredit text-left").append(datainput);
     $(".editscreen").append(useredit);
+
+// submit form
+    $(datainput).on("submit", function(event) {
+      event.preventDefault();
+      console.log($(titleinput).val());
+      console.log($(drivinginput).val());
+      console.log($(descriptioninput).val());
+            // separate picture saving
+      let pathfile = $("#coorduploadinput")[0].files[0];
+      console.log(pathfile);
+
+      let imagefile = $("#imageuploadinput")[0].files[0];
+      console.log(imagefile);
+
+  // copy paste
+      $.ajax({
+        method: "POST",
+        url: "/api/users/userid/newhike",
+        data: {
+          "title" : $(titleinput).val(),
+          "travel_time" : $(drivinginput).val(),
+          "description" : $(descriptioninput).val(),
+          "path" : JSON.stringify(pathfile),
+          "picture" : JSON.stringify(imagefile)
+        }
+      })
+    });
+
 }
 
 

@@ -39,5 +39,20 @@ module.exports = (knex) => {
     });
   });
 
+  router.post("/userid/newhike", (req, res) => {
+    let userid = req.session.userID;
+    console.log("newhike");
+    console.log(req.body.title);
+
+    knex
+      .select()
+      .from('map')
+      .where('id', req.body.mapid )
+      .then((results) => {
+
+        res.json(results);
+    });
+  });
+
   return router;
 }
