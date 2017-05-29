@@ -43,7 +43,6 @@ module.exports = (knex) => {
     let userid = req.session.userID;
     console.log("newhike");
     console.log(req.body.title);
-    console.log(req.body.path);
 
     knex
       .select()
