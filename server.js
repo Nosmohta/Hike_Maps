@@ -6,6 +6,7 @@ const PORT        = process.env.PORT || 8080;
 const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const bodyParser  = require("body-parser");
+const fileUpload  = require('express-fileupload');
 const sass        = require("node-sass-middleware");
 const session     = require('express-session')
 const app         = express();
@@ -20,7 +21,6 @@ const loginRoutes    = require("./routes/login_route");
 const mapsRoutes     = require("./routes/maps_route");
 const usersRoutes = require("./routes/users_route");
 
-
 // Concise output colored by response status for development use.
 app.use(morgan('dev'));
 
@@ -29,6 +29,7 @@ app.use(knexLogger(knex));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileUpload());
 app.use("/styles", sass({
   src: __dirname + "/SASS",
   dest: __dirname + "/public/styles",

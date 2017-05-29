@@ -10,7 +10,6 @@ $(() => {
 
 
 
-
   $.ajax({
     method: "GET",
     url: "/api" + location.pathname,

@@ -66,7 +66,10 @@ function buildform(mapid) {
 
   //Load Edit map details
   var map;
-  initMap('/api/maps/' + mapid);
+    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBd-gj2cclo8bKnJzv2ChFVEtengy6LSQE", () => {
+        initMap('/api/maps/' + mapid + '/path');
+    });
+
 
 
   $.ajax({
@@ -76,6 +79,7 @@ function buildform(mapid) {
   }).done((map) => {
 
     //Add dynamic image path based on mapid:
+
     let image = $("<img id='hikeimg' class='img-responsive' width='80%'>").attr('src', '/public/library/hike_images/img-' +map[0].id + '.jpg' );
     let titletext= $("<p>").text("Title:");
     let titleinput= $("<input>").attr("type", "text").attr("name", "title").attr("value", `${map[0].title}`);
