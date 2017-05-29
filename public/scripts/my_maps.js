@@ -37,7 +37,6 @@ $(() => {
         let editbutton= $("<button>").attr("type", "button").addClass("editing btn btn-primary").text("edit").attr("data-id", hikes.id);
         let li= $("<li>").append(hike).append(editbutton).addClass("h5");
         $(".myhikes").append(li);
-
         //beg: build form function when clicking on edit
         $(editbutton).on("click", function(event) {
           event.preventDefault();
@@ -91,7 +90,6 @@ function buildform(mapid) {
     let datainput= $("<form>").addClass("datainput").attr("action", "").append(image).append(titletext).append(titleinput).append(drivingtext).append(drivinginput).append(descriptiontext).append(descriptioninput).append(imageuploadtext).append(imageuploadinput).append(coorduploadtext).append(coorduploadinput).append("<br>").append(submission);
     let useredit= $("<div>").addClass("useredit text-left").append(datainput);
     $(".editscreen").append(useredit);
-
       $(datainput).on("submit", function(event) {
       event.preventDefault();
       console.log($(titleinput).val());

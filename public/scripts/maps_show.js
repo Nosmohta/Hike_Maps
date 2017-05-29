@@ -19,7 +19,8 @@ $(() => {
     }
   }).done((results) => {
     //build DOM with results
-    $('#title').text(results.title);
+    // $('#title').text(results.title);
+    $('.page-header').text(results.title);
     $('#description').text(results.description);
     $('#hiketime').text("Estimated hike time: " + results.travel_time);
 
