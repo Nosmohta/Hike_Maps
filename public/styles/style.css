@@ -3,45 +3,38 @@ body, html {
     margin: 0;
    }
 
-
-
-#indexbody .bg {
+.bg {
     background-image: url('/public/library/images/Moraine.jpg');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     opacity:0.9;
-
 }
-
 
 #indexbody .bg-mask {
-
     height: 100%;
-
 }
 
-.page-content {
-
+#indexbody .page-content {
     margin: 15%;
     color: white;
-
 }
 
-.feature {
+#indexbody .feature {
     text-align: center;
     color: #07101e;
-    font-size: 3em;
-
+    font-size: 4em;
 }
 
 #hikelist .hike {
     color: #07101e;
-    font-size: 1.2em;
-
-
-
+    font-size: 2em;
 }
+
+
+
+
+
 
 

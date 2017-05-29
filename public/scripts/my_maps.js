@@ -143,7 +143,7 @@ function buildformorig() {
     let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("id","imageuploadinput");
     let coorduploadtext = $("<p>").text("Co-ordinates upload:");
     let coorduploadinput = $("<textarea>").attr("rows", "4").attr("cols", "50").attr("id", "coorduploadinput");
-    let submission = $("<input>").attr("type", "submit").attr("value", "submit").attr("id", "submission");
+    let submission = $("<input>").addClass("btn btn-primary").attr("type", "submit").attr("value", "Save").attr("id", "submission");
     let datainput= $("<form>").addClass("datainput").attr("action", "").append(image).append(titletext).append(titleinput).append(drivingtext).append(drivinginput).append(descriptiontext).append(descriptioninput).append(imageuploadtext).append(imageuploadinput).append(coorduploadtext).append(coorduploadinput).append("<br>").append(submission);
     let useredit= $("<div>").addClass("useredit text-left").append(datainput);
     $(".editscreen").append(useredit);
