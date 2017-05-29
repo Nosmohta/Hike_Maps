@@ -106,7 +106,7 @@ function buildformorig() {
     let descriptiontext = $("<p>").text("Description:");
     let descriptioninput = $("<textarea>").attr("rows", "4").attr("cols", "50").attr("id", "descriptioninput");
     let imageuploadtext = $("<p>").text("Image upload:");
-    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("accept", "image/*").addClass("imageuploadinput");
+    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("accept", "image/*").attr("id","imageuploadinput");
     let coorduploadtext = $("<p>").text("Co-ordinates upload:");
     let coorduploadinput = $("<input>").attr("type", "file").attr("name", "coordinates").attr("accept", "").attr("id", "coorduploadinput");
     let submission = $("<input>").attr("type", "submit").attr("value", "submit").attr("id", "submission");
@@ -121,6 +121,11 @@ function buildformorig() {
       console.log($(drivinginput).val());
       console.log($(descriptioninput).val());
             // separate picture saving
+      let pathfile = $("#coorduploadinput")[0].files[0];
+      console.log(pathfile);
+
+      let imagefile = $("#imageuploadinput")[0].files[0];
+      console.log(imagefile);
 
   // copy paste
       $.ajax({
@@ -129,8 +134,9 @@ function buildformorig() {
         data: {
           "title" : $(titleinput).val(),
           "travel_time" : $(drivinginput).val(),
-          "description" : $(descriptioninput).val()
-          // "path" : $(coorduploadinput)
+          "description" : $(descriptioninput).val(),
+          "path" : pathfile.serialize(),
+          "picture" : imagefile.serialize()
         }
       })
     });
