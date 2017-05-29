@@ -61,5 +61,38 @@ module.exports = (knex) => {
     });
   });
 
+    router.put("/userid/:mapid", (req, res) => {
+    let name = req.session.userID;
+    let mapid = req.params.mapid
+
+    knex('map')
+      //.update({id: '10, user_id: user[0].id, title: req.body.title, description: req.body.description, travel_time: req.body.travel_time, path: req.body.path})
+      .update({'title': req.body.title, 'path':req.body.path, 'description' : req.body.description, 'travel_time' : req.body.travel_time})
+      .where('id', mapid)
+      .then((results) => {
+
+        res.send("Thank you for your submission");
+        })
+
+  });
+
+    router.delete("/userid/:mapid", (req, res) => {
+    let name = req.session.userID;
+    let mapid = req.params.mapid
+
+    knex('map')
+      //.update({id: '10, user_id: user[0].id, title: req.body.title, description: req.body.description, travel_time: req.body.travel_time, path: req.body.path})
+      .delete()
+      .where('id', mapid)
+      .then((results) => {
+
+        res.redirect("/users/name");
+        })
+
+  });
+
+
+
+
   return router;
 }

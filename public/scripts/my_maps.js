@@ -72,7 +72,7 @@ function buildform(mapid) {
     url: "/api/users/userid/mapid",
     data: {"mapid" : mapid}
   }).done((map) => {
-
+    let deletion = $("<input type='submit'>").val("DELETE")
     //Add dynamic image path based on mapid:
     let image = $("<img id='hikeimg' class='img-responsive' width='80%'>").attr('src', '/public/library/hike_images/img-' +map[0].id + '.jpg' );
     let titletext= $("<p>").text("Title:");
@@ -88,31 +88,37 @@ function buildform(mapid) {
     let submission = $("<input>").attr("type", "submit").attr("value", "submit");
     let datainput= $("<form>").addClass("datainput").attr("action", "").append(image).append(titletext).append(titleinput).append(drivingtext).append(drivinginput).append(descriptiontext).append(descriptioninput).append(imageuploadtext).append(imageuploadinput).append(coorduploadtext).append(coorduploadinput).append("<br>").append(submission);
     let useredit= $("<div>").addClass("useredit text-left").append(datainput);
-    $(".editscreen").append(useredit);
+
+    $(".editscreen").append(useredit, deletion);
+
+      $(deletion).on("click", function(event) {
+       event.preventDefault();
+       event.stopPropagation();
+        $.ajax({
+          method: "DELETE",
+          url: `/api/users/userid/${map[0].id}`
+        })
+      })
+
+
+
       $(datainput).on("submit", function(event) {
       event.preventDefault();
       console.log($(titleinput).val());
       console.log($(drivinginput).val());
       console.log($(descriptioninput).val());
             // separate picture saving
-
-      image = JSON.stringify(imagefile);
-      console.log(image);
-      console.log( typeof image)
-
-
-  // copy paste
-      // $.ajax({
-      //   method: "POST",
-      //   url: "/api/users/userid/newhike",
-      //   data: {
-      //     "title" : $(titleinput).val(),
-      //     "travel_time" : $(drivinginput).val(),
-      //     "description" : $(descriptioninput).val(),
-      //     "path" : JSON.stringify(pathfile),
-      //     "picture" : JSON.stringify(imagefile)
-      //   }
-      // })
+      $.ajax({
+        method: "PUT",
+        url: `/api/users/userid/${map[0].id}`,
+        data: {
+          "title" : $(titleinput).val(),
+          "travel_time" : $(drivinginput).val(),
+          "description" : $(descriptioninput).val(),
+          "path" : $(coorduploadinput).val(),
+          "picture" : $(imageuploadinput).val()
+        }
+      })
 
     });
   })
@@ -140,9 +146,6 @@ function buildformorig() {
 // submit form
     $(datainput).on("submit", function(event) {
       event.preventDefault();
-      console.log($(titleinput).val());
-      console.log($(drivinginput).val());
-      console.log($(descriptioninput).val());
             // separate picture saving
 
   // copy paste
