@@ -70,13 +70,13 @@ app.get("/maps/:mapid",  (req, res) => {
 
 // login Page
 app.get("/login",  (req, res) => {
+
   res.render("login_view");
 });
 
 // My_Maps Page
 app.get("/users/:userid",  (req, res) => {
   let userID = req.session.userID;
-
   if ( userID === req.params.userid){
     res.render("my_maps_view");
   } else {
