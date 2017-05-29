@@ -6,7 +6,7 @@ const PORT        = process.env.PORT || 8080;
 const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const bodyParser  = require("body-parser");
-const fileUpload  = require('express-fileupload');
+const fileUpload  = require("express-fileupload");
 const sass        = require("node-sass-middleware");
 const session     = require('express-session')
 const app         = express();
@@ -64,14 +64,24 @@ app.get("/maps", (req, res) => {
   res.render("maps_index");
 });
 
-// View Map Page
+//MyMaps redirect
+app.get("/users",  (req, res) => {
+  let userid = req.session.userID;
+  console.log("userid:", userid);
+  if ( userid) {
+    res.redirect("users/" + userid);
+  } else {
+    res.redirect("/login");
+  }
+});
+
+// Show Map Page
 app.get("/maps/:mapid",  (req, res) => {
   res.render("maps_show_view");
 });
 
 // login Page
 app.get("/login",  (req, res) => {
-
   res.render("login_view");
 });
 
@@ -83,7 +93,6 @@ app.get("/users/:userid",  (req, res) => {
   } else {
     res.send("you need to login first.")
   }
-
 });
 
 // login

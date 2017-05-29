@@ -19,9 +19,10 @@ module.exports = (knex) => {
       .innerJoin ('users','map.user_id', 'users.id')
       .where('users.name', userid )
       .then((results) => {
-
         res.json(results);
     });
+
+
 
 
 

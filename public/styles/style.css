@@ -1,94 +1,47 @@
-* {
-  box-sizing: border-box; }
+body, html {
+   height: 100%;
+    margin: 0;
+   }
+
+
+
+#indexbody .bg {
+    background-image: url('/public/library/images/Moraine.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:0.9;
+
+}
+
+
+#indexbody .bg-mask {
+
+    height: 100%;
+
+}
 
 .page-content {
-  top: 70px;
-  left: 0;
-  position: fixed;
-  overflow: auto;
-  right: 0;
-  width: 100%;
-  bottom: 0; }
-  .page-content .amountain {
-    height: 450px;
-    width: 500px;
-    padding: 15px;
-    float: left; }
-  .page-content .hikelist {
-    list-style-type: none;
-    margin-top: 70px;
-    float: left; }
-    .page-content .hikelist .hike {
-      font-size: 20px; }
-  .page-content .maptitle {
-    padding: 15px; }
-  .page-content .markerinfo {
-    height: 450px;
-    width: 500px;
-    float: left; }
-    .page-content .markerinfo .picture {
-      height: 150px;
-      padding: 15px;
-      padding-top: 0; }
-    .page-content .markerinfo .title {
-      padding: 15px; }
-    .page-content .markerinfo .description {
-      padding: 15px; }
 
-.page-nav {
-  left: 0;
-  height: 70px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  background: #e1e4ea;
-  overflow: hidden; }
-  .page-nav .brand {
-    padding: 15px;
-    display: inline;
-    height: 70px;
-    line-height: 70px;
-    font-size: 36px;
-    text-decoration: none;
-    margin-right: 80px; }
-  .page-nav .navlink {
-    padding: 15px;
-    height: 70px;
-    line-height: 70px;
-    border: 1px solid blue;
-    font-size: 28px;
-    text-decoration: none; }
-  .page-nav .logout {
-    padding: 15px;
-    height: 70px;
-    line-height: 45px;
-    float: right; }
-  .page-nav .email {
-    margin-left: 80px;
-    padding: 15px;
-    height: 70px;
-    line-height: 70px;
-    font-size: 26px;
-    text-decoration: none; }
+    margin: 15%;
+    color: white;
 
-#map {
-  height: 450px;
-  width: 500px;
-  float: left; }
+}
 
-.mapview {
-  overflow: hidden;
-  padding: 15px; }
+.feature {
+    text-align: center;
+    color: #07101e;
+    font-size: 3em;
 
-.container {
-  overflow: hidden; }
+}
 
-.editscreen {
-  padding: 15px;
-  float: left; }
+#hikelist .hike {
+    color: #07101e;
+    font-size: 1.2em;
 
-.editing {
-  margin-left: 15px; }
 
-ul {
-  list-style-type: none; }
+
+}
+
+
