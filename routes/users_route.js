@@ -42,21 +42,29 @@ module.exports = (knex) => {
 
 
   router.post("/userid/newhike", (req, res) => {
-    let userid = req.session.userID;
-    console.log( "userid:", userid)
-    console.log("newhike");
-    console.log(req.body.title);
+
+    let name = req.session.userID;
+
 
 
 
 
     knex
-      .select()
-      .from('map')
-      .where('id', req.body.mapid )
+      .select('id')
+      .from('users')
+      .where('name', name)
+      .then((user) =>{
+
+
+    console.log(user[0].id);
+
+    knex('map')
+      //.update({id: '10, user_id: user[0].id, title: req.body.title, description: req.body.description, travel_time: req.body.travel_time, path: req.body.path})
+      .insert({'title': req.body.title, 'user_id': user[0].id, 'path':req.body.path, 'description' : req.body.description, 'travel_time' : req.body.travel_time})
       .then((results) => {
 
-        res.json(results);
+        res.send("Thank you for your submission");
+        })
     });
   });
 
