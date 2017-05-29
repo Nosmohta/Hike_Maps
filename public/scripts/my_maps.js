@@ -103,6 +103,9 @@ function buildform(mapid) {
 
       let imagefile = $("#imageuploadinput")[0].files[0];
       console.log(imagefile);
+      image = JSON.stringify(imagefile);
+      console.log(image);
+
 
   // copy paste
       $.ajax({
