@@ -70,7 +70,7 @@ module.exports = (knex) => {
 
     router.put("/userid/:mapid", (req, res) => {
     let name = req.session.userID;
-    let mapid = req.params.mapid
+    let mapid = req.params.mapid;
 
     knex('map')
       //.update({id: '10, user_id: user[0].id, title: req.body.title, description: req.body.description, travel_time: req.body.travel_time, path: req.body.path})
