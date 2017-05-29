@@ -41,7 +41,9 @@ module.exports = (knex) => {
 
   router.post("/userid/newhike", (req, res) => {
     let userid = req.session.userID;
-    console.log("API req for new hike");
+    console.log("newhike");
+    console.log(req.body.title);
+    console.log(req.body.path);
 
     knex
       .select()
