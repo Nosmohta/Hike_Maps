@@ -33,9 +33,9 @@ $(() => {
     }
    }).done((map) => {
       for (hikes of map) {
-        let hike = $("<a>").text(hikes.title).attr("href", `/maps/${hikes.id}`);
+        let hike = $("<a>").text(hikes.title).attr("href", `/maps/${hikes.id}`).attr("style", "margin-left:15px");
         let editbutton= $("<button>").attr("type", "button").addClass("editing btn btn-primary").text("edit").attr("data-id", hikes.id);
-        let li= $("<li>").append(hike).append(editbutton).addClass("h5");
+        let li= $("<li>").append(editbutton).append(hike).addClass("h5");
         $(".myhikes").append(li);
         //beg: build form function when clicking on edit
         $(editbutton).on("click", function(event) {
@@ -75,7 +75,7 @@ function buildform(mapid) {
     url: "/api/users/userid/mapid",
     data: {"mapid" : mapid}
   }).done((map) => {
-    let deletion = $("<input type='submit'>").val("DELETE")
+    let deletion = $("<input type='submit'>").val("DELETE").addClass("btn btn-danger")
     //Add dynamic image path based on mapid:
 
     let image = $("<img id='hikeimg' class='img-responsive' width='80%'>").attr('src', '/public/library/hike_images/img-' +map[0].id + '.jpg' );
@@ -86,14 +86,15 @@ function buildform(mapid) {
     let descriptiontext = $("<p>").text("Description:");
     let descriptioninput = $("<textarea>").attr("rows", "4").attr("cols", "50").val( map[0].description);
     let imageuploadtext = $("<p>").text("Image upload:");
-    let imageuploadinput = $("<input>").attr("type", "text").attr("name", "pic").attr("id", "imageuploadinput").attr("value", `${map[0].picture}`);
+    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("id", "imageuploadinput").attr("value", "");
     let coorduploadtext = $("<p>").text("Co-ordinates upload:");
-    let coorduploadinput = $("<textarea>").attr("rows", "4").attr("cols", "50").attr("id", "coorduploadinput").val(map[0].path);
-    let submission = $("<input>").attr("type", "submit").attr("value", "submit");
+    let coorduploadinput = $("<textarea>").attr("rows", "4").attr("cols", "50").attr("id", "coorduploadinput");
+    let submission = $("<input>").attr("type", "submit").attr("value", "submit").addClass("btn btn-primary");
     let datainput= $("<form>").addClass("datainput").attr("action", "").append(image).append(titletext).append(titleinput).append(drivingtext).append(drivinginput).append(descriptiontext).append(descriptioninput).append(imageuploadtext).append(imageuploadinput).append(coorduploadtext).append(coorduploadinput).append("<br>").append(submission);
     let useredit= $("<div>").addClass("useredit text-left").append(datainput);
 
-    $(".editscreen").append(useredit, deletion);
+    $(".editscreen").append(useredit);
+    $(".mapview").append(deletion);
 
       $(deletion).on("click", function(event) {
        event.preventDefault();
@@ -139,7 +140,7 @@ function buildformorig() {
     let descriptiontext = $("<p>").text("Description:");
     let descriptioninput = $("<textarea>").attr("rows", "4").attr("cols", "50").attr("id", "descriptioninput");
     let imageuploadtext = $("<p>").text("Image upload:");
-    let imageuploadinput = $("<input>").attr("type", "text").attr("name", "pic").attr("id","imageuploadinput");
+    let imageuploadinput = $("<input>").attr("type", "file").attr("name", "pic").attr("id","imageuploadinput");
     let coorduploadtext = $("<p>").text("Co-ordinates upload:");
     let coorduploadinput = $("<textarea>").attr("rows", "4").attr("cols", "50").attr("id", "coorduploadinput");
     let submission = $("<input>").attr("type", "submit").attr("value", "submit").attr("id", "submission");
