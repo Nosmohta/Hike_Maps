@@ -93,7 +93,7 @@ module.exports = (knex) => {
       .where('id', mapid)
       .then((results) => {
 
-        res.redirect("/users/name");
+        res.send("Thank you for your submission");
         })
 
   });
