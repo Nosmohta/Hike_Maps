@@ -3,6 +3,7 @@
 const express = require('express');
 const router  = express.Router();
 const session     = require('express-session')
+const fileUpload  = require('express-fileupload');
 
 module.exports = (knex) => {
 
@@ -39,8 +40,14 @@ module.exports = (knex) => {
     });
   });
 
+
   router.post("/userid/newhike", (req, res) => {
+
     let name = req.session.userID;
+
+
+
+
 
     knex
       .select('id')

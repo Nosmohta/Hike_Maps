@@ -17,8 +17,6 @@ module.exports = (knex) => {
   });
 
   router.get("/:mapid", (req, res) => {
-    console.log(req.params);
-
     let mapid = req.params.mapid;
 
     knex
@@ -26,15 +24,12 @@ module.exports = (knex) => {
       .from( 'map')
       .where( 'id' , mapid )
       .then((results) => {
-        console.log("sending ajax response from  GET api/maps/:mapid", (results))
         res.json(results[0]);
     });
 
   });
 
   router.get("/:mapid/path", (req, res) => {
-    console.log(req.params);
-
     let mapid = req.params.mapid;
 
     knex
@@ -47,13 +42,6 @@ module.exports = (knex) => {
     });
 
   });
-
-
-
-
-
-
-
 
 
 
